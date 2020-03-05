@@ -1,6 +1,12 @@
 class BooksController < ApplicationController
+  def top
+  end
+
+
   def index
-  		@lists = List.all
+  		@books = Book.all
+  		@book = Book.new
+  	
   end
   
 
@@ -9,23 +15,26 @@ class BooksController < ApplicationController
   end
 
   def new
-  	
+  		@book = Book.new
+
   end
 
   def create
   		book = Book.new(book_params)
   		book.save
-  		#詳細画面へリダイレクト
-  		redirect_to '/top'
+  		redirect_to books_path
+  
   end
 
   def edit
+  		@book = Book.find(params[:id])
   end
 
   def update
-  end
+  		book = Book.find(params[:id])
+  		book.update(book_params)
+  		redirect_to book_path(book)
 
-  def destroy
   end
 
   private
