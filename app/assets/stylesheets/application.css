@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	font-family: verdana, arial, helvetica, sans-serif;
+	margin: 20px;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+.top-text {
+	margin-left: 20px;
+}
