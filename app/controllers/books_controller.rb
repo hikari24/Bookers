@@ -35,18 +35,17 @@ class BooksController < ApplicationController
   end
 
   def update
-  		book = Book.find(params[:id])
-      book.update(book_params)
-  		redirect_to :action => 'show'
+  		@book = Book.find(params[:id])
+      @book.update(book_params)
+  		redirect_to @book
       flash[:notice] = 'Book was successfully updated'
-      
 
 
   end
 
   def destroy
-  		book = Book.find(params[:id]) #データを１件取得
-  		book.destroy
+  		@book = Book.find(params[:id]) #データを１件取得
+  		@book.destroy
   		redirect_to books_path
       flash[:notice] = 'Book was successfully destroyed'
 
